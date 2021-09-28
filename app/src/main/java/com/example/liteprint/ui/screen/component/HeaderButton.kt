@@ -10,14 +10,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.dp
+import com.example.liteprint.HomeScreenViewModel
 import com.example.liteprint.ui.custom.GradientButton
 
 
 @Composable
-fun HeaderButton() {
+fun HeaderButton(viewModel: HomeScreenViewModel) {
 
     Box(
-        modifier = Modifier.fillMaxWidth(1f).height(30.dp),
+        modifier = Modifier
+            .fillMaxWidth(1f)
+            .height(30.dp),
         contentAlignment = Alignment.Center
     ) {
         GradientButton(
@@ -26,9 +29,11 @@ fun HeaderButton() {
                     DarkCarrot,
                     LightCarrot
                 )
-            ), {}
-        )
-HeaderText(text = "разложить", 18)
+            )
+        ) {
+            viewModel.onNestedChanged()
+        }
+        HeaderText(text = "разложить", 18)
 
     }
 }

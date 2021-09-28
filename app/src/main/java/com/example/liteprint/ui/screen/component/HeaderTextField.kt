@@ -19,13 +19,15 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.liteprint.HomeScreenViewModel
 import com.example.liteprint.ui.theme.RussoOne
+import java.util.*
 
 @Composable
-fun HeaderTextField(state: MutableState<String>) {
+fun HeaderTextField(text: String, onChanged: (String) -> Unit ) {
 
     BasicTextField(
-        value = state.value, onValueChange = { state.value = it },
+        value = text, onValueChange = { onChanged(it) },
         modifier = Modifier
             .background(
                 color = Color.White,
