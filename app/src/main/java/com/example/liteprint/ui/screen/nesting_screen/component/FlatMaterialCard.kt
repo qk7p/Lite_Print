@@ -48,10 +48,8 @@ fun FlatMaterialCard(
             }
             Row() {
 
-                val materialArea = String.format("%.3f",(flatMaterial._width.toDouble() * flatMaterial._height.toDouble())/1000000 )
-
                 BodyText(
-                    text = "площадь заготовки: $materialArea м2",
+                    text = "площадь заготовки: ${flatMaterial.getMaterialAreaString()} м2",
                     fontSize = 12
                 )
             }

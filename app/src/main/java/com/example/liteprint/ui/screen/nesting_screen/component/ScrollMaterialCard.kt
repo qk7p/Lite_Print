@@ -1,4 +1,4 @@
-package com.example.liteprint.ui.screen.component
+package com.example.liteprint.ui.screen.nesting_screen.component
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -39,9 +39,10 @@ fun ScrollMaterialCard(
             Column(modifier = Modifier.weight(0.6f)) {
                 Row() {
                     Row() {
-                        val detailArea = (detail._width.toDouble() * detail._height.toDouble() / 1000000) * quantity
+                        val usedMaterialArea = detail.detailArea * quantity
                         val materialArea = (scrollMaterial.width.toDouble() / 1000) * usedLength
-                        val efficiency = String.format("%.2f", (detailArea / materialArea * 100))
+                        val efficiency =
+                            String.format("%.2f", (usedMaterialArea / materialArea * 100))
 
                         BodyText(text = "количество:", fontSize = 12)
                         Spacer(modifier = Modifier.width(4.dp))
@@ -65,5 +66,5 @@ fun ScrollMaterialCard(
 @Preview
 @Composable
 fun PreviewCard() {
-    ScrollMaterialCard(scrollMaterial = ScrollMaterial(1000) , detail = Detail(100, 100, 10))
+    ScrollMaterialCard(scrollMaterial = ScrollMaterial(1000), detail = Detail(100, 100, 10))
 }

@@ -23,10 +23,11 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun GradientButton(
     gradient: Brush,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    shape: RoundedCornerShape
 ) {
 
-    Button(shape = RoundedCornerShape(0.dp, 0.dp, 5.dp, 5.dp),
+    Button(shape = shape,
         colors = ButtonDefaults.buttonColors(
             backgroundColor = Color.Transparent
         ),
@@ -40,19 +41,5 @@ fun GradientButton(
                 .fillMaxSize(1f),
         ) {
         }
-    }
-}
-
-@Preview
-@Composable
-fun GradientButtonPreview() {
-    GradientButton(
-        gradient = Brush.horizontalGradient(
-            colors = listOf(
-                DarkCarrot, LightCarrot
-            )
-        )
-    ) {
-
     }
 }
