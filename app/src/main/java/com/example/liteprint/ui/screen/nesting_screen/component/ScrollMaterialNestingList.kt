@@ -56,12 +56,12 @@ fun ScrollMaterialNestingList(viewModel: NestingScreenViewModel) {
             Row(
                 Modifier
                     .padding(5.dp)
-                    .align(Alignment.Center)
-                    .fillMaxWidth(1f)
+                    .fillMaxWidth(1f),
+                horizontalArrangement = Arrangement.Center
             )
             {
                 if (viewModel.isNested.value) {
-                    LazyColumn {
+                    LazyColumn () {
                         items(
                             items = materials
                         ) { material ->

@@ -11,10 +11,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.dp
 import com.example.liteprint.NestingScreenViewModel
-import com.example.liteprint.ui.custom.HeaderTextField
-import com.example.liteprint.ui.screen.main.FlatMaterialButton
+import com.example.liteprint.ui.custom.*
 import com.example.liteprint.ui.screen.main.HeaderText
-import com.example.liteprint.ui.screen.main.ScrollMaterialButton
 
 @Composable
 fun NestingHeader(viewModel: NestingScreenViewModel) {

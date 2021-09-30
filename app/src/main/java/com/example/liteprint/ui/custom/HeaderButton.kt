@@ -1,4 +1,4 @@
-package com.example.liteprint.ui.screen.main
+package com.example.liteprint.ui.custom
 
 import DarkCarrot
 import LightCarrot
@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.dp
 import com.example.liteprint.NestingScreenViewModel
-import com.example.liteprint.ui.custom.GradientButton
+import com.example.liteprint.ui.screen.main.HeaderText
 
 
 @Composable
@@ -32,12 +32,8 @@ fun FlatMaterialButton(viewModel: NestingScreenViewModel) {
                 )
             ),
             {
-                val nestingState = viewModel.nestingState
-
-                if (nestingState.value = viewModel.getNestingType()) {
-                    viewModel.onNestingChange()
+                    viewModel.setNestingType(NestingScreenViewModel.NestingType.FlatMaterialNest)
                     viewModel.onNestedChanged()
-                }
             },
             shape = RoundedCornerShape(0.dp, 0.dp, 0.dp, 5.dp)
         )
@@ -63,7 +59,9 @@ fun ScrollMaterialButton(viewModel: NestingScreenViewModel) {
                     DarkCarrot
                 )
             ),
-            { viewModel.onNestedChanged() },
+            {
+                viewModel.setNestingType(NestingScreenViewModel.NestingType.ScrollMaterialNest)
+                viewModel.onNestedChanged() },
             shape = RoundedCornerShape(0.dp, 0.dp, 5.dp, 0.dp)
         )
         HeaderText(text = "на рулон", 18)

@@ -7,27 +7,12 @@ import com.example.liteprint.model.FlatMaterial
 import com.example.liteprint.model.ScrollMaterial
 
 
-
-
-
 class NestingScreenViewModel : ViewModel() {
 
-     var flatMaterialArrayList: ArrayList<FlatMaterial> = arrayListOf(
-        FlatMaterial(3050, 2030, 50),
-        FlatMaterial(1525, 2030, 50),
-        FlatMaterial(1000, 700, 50),
-        FlatMaterial(1250, 2050, 50),
-         FlatMaterial(500,350,30)
-    )
+    var flatMaterialArrayList: ArrayList<FlatMaterial> = arrayListOf()
 
-     var scrollMaterialArrayList: ArrayList<ScrollMaterial> = arrayListOf(
-        ScrollMaterial(1060),
-        ScrollMaterial(1260),
-        ScrollMaterial(1370),
-        ScrollMaterial(1520),
-        ScrollMaterial(1600)
-    )
 
+    var scrollMaterialArrayList: ArrayList<ScrollMaterial> = arrayListOf()
 
 
     /* Header viewModels */
@@ -35,6 +20,7 @@ class NestingScreenViewModel : ViewModel() {
     /* Detail Width */
 
     val detailWidth = mutableStateOf(100)
+
     fun setDetailWidth(newDetailWidth: String) {
         if (newDetailWidth.isNotEmpty() && newDetailWidth.length < 10) {
             detailWidth.value = newDetailWidth.filter { it.isDigit() }.toInt()
@@ -108,12 +94,14 @@ class NestingScreenViewModel : ViewModel() {
     }
 
     val nestingState = mutableStateOf(NestingType.Nothing)
-    fun onNestingChange ( type: NestingType) {
+    fun setNestingType(type: NestingType) {
         nestingState.value = type
     }
-    fun getNestingType() : NestingType {
+
+    fun getNestingType(): NestingType {
         return nestingState.value
     }
+
 
     val isNested = mutableStateOf(false)
     fun onNestedChanged() {
@@ -136,12 +124,49 @@ class NestingScreenViewModel : ViewModel() {
         mutableStateOf(scrollMaterialArrayList)
 
 
-
     /* Bottom viewModels */
 
     val detailArea = mutableStateOf("")
 
     val detailPerimeter = mutableStateOf("")
+
+    /* Dialog viewModels */
+
+    val isDialogShow = mutableStateOf(false)
+    fun showDialog() {
+        isDialogShow.value = true
+    }
+
+    fun closeDialog() {
+        isDialogShow.value = false
+    }
+
+    val newMaterialWidth = mutableStateOf(0)
+    fun getNewMaterialWidthString(): String {
+        return newMaterialWidth.value.toString()
+    }
+
+    fun setNewMaterialWidth(input: String) {
+        if (input.isNotEmpty() && input.length < 10) {
+            newMaterialWidth.value = input.filter { it.isDigit() }.toInt()
+        } else {
+            newMaterialWidth.value = 0
+        }
+
+    }
+
+    val newMaterialHeight = mutableStateOf(0)
+    fun getNewMaterialHeightString(): String {
+        return newMaterialHeight.value.toString()
+    }
+
+    fun setNewMaterialHeight(input: String) {
+        if (input.isNotEmpty() && input.length < 10) {
+            newMaterialHeight.value = input.filter { it.isDigit() }.toInt()
+        } else {
+            newMaterialHeight.value = 0
+        }
+    }
 
 }
 

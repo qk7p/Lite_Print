@@ -28,7 +28,8 @@ fun ScrollMaterialCard(
 
             val (quantity, usedLength) = nester.simpleNest()
 
-            Column(modifier = Modifier.weight(0.4f)) {
+            Column(modifier = Modifier.weight(0.4f),
+                horizontalAlignment = Alignment.CenterHorizontally) {
                 BodyText(text = scrollMaterial.getScrollMaterial(), fontSize = 12)
                 Row() {
                     BodyText(text = "погонаж:", fontSize = 12)
@@ -36,7 +37,8 @@ fun ScrollMaterialCard(
                     BodyText(text = "$usedLength п.м.", fontSize = 12)
                 }
             }
-            Column(modifier = Modifier.weight(0.6f)) {
+            Column(modifier = Modifier.weight(0.6f),
+                horizontalAlignment = Alignment.CenterHorizontally) {
                 Row() {
                     Row() {
                         val usedMaterialArea = detail.detailArea * quantity

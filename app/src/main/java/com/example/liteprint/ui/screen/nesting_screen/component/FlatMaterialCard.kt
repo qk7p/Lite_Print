@@ -30,7 +30,7 @@ fun FlatMaterialCard(
         Column(
             Modifier
                 .padding(2.dp)
-                .weight(0.33f), horizontalAlignment = Alignment.Start
+                .weight(0.33f), horizontalAlignment = Alignment.CenterHorizontally
         ) {
             BodyText(text = flatMaterial.getMaterial(), fontSize = 12)
         }
@@ -40,7 +40,7 @@ fun FlatMaterialCard(
         Column(
             Modifier
                 .padding(2.dp)
-                .weight(0.66f) , horizontalAlignment = Alignment.Start
+                .weight(0.66f) , horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Row() {
                 val text = "на заготовке: " + nester.nest().toString() + " шт."
